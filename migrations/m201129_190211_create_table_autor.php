@@ -14,7 +14,7 @@ class m201129_190211_create_table_autor extends Migration
     {
         $this->execute("CREATE TABLE IF NOT EXISTS `autor` (
   `id` int(10) NOT NULL,
-  `fcs` varchar(255) NOT NULL,
+  `fio` varchar(255) NOT NULL,
   `year_of_birth` int(4) NOT NULL,
   `year_of_death` int(4) NOT NULL,
   `country_autor` varchar(255) NOT NULL
