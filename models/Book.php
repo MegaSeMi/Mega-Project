@@ -7,7 +7,7 @@ namespace app\models;
 use yii\db\ActiveRecord;
 
 /**
- * Class Autor
+ * Class Book
  * @package app\models
  * @property int $id
  * @property string $name
@@ -25,5 +25,20 @@ class Book extends ActiveRecord
     {
 // Метод возврата имени таблицы в баззе данных(см класс)
         return '{{book}}';
+    }
+
+    public function rules()
+    {
+        return [
+            [
+                ["name","isbn","autor","genre","publishing","language","country","year"],"required"
+            ],
+            [
+                ["name","isbn","autor","genre","publishing","language","country"],"string"
+            ],
+            [
+                ["year"],"integer"
+            ]
+        ];
     }
 }
