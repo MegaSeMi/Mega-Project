@@ -1,0 +1,9 @@
+GET http://biblionare/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+
+###
+

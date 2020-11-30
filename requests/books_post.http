@@ -1,0 +1,11 @@
+POST http://biblionare/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+
+{   "name": "test",   "isbn": "test",   "autor": "test",   "genre": "test",   "publishing": "test",   "language": "test",   "country": "test",   "year": 2020 }
+
+###
+
