@@ -1,0 +1,10 @@
+POST http://biblionare/autors
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+
+{   "fio": "test",   "year_of_birth": 1945,   "year_of_death": 2016,   "country_autor": "usa"    }
+
+###
