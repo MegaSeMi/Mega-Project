@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 use yii\rest\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use yii\web\Response;
 use yii\web\ServerErrorHttpException;
 
 class IndexController extends Controller
@@ -73,6 +74,7 @@ class IndexController extends Controller
 
         if ($model->save()) {
             $response = Yii::$app->getResponse();
+            $response->format = Response::FORMAT_JSON;
             $response->setStatusCode(201);
             return $model;
         } else {

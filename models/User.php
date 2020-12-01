@@ -15,6 +15,12 @@ use yii\db\ActiveRecord;
  */
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
+    public static function tableName()
+    {
+// Метод возврата имени таблицы в баззе данных(см класс)
+        return '{{user}}';
+    }
+
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_REGISTER = 'register';
 
@@ -22,7 +28,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         $scenarios = parent::scenarios();
         $scenarios[self::SCENARIO_LOGIN] = ['username', 'password'];
-        $scenarios[self::SCENARIO_REGISTER] = ['username', 'password', "authKey", "accessToken"];
+        $scenarios[self::SCENARIO_REGISTER] = ['username', 'password', "auth_key", "access_token"];
         return $scenarios;
     }
 
@@ -30,7 +36,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             [
-                ["username", "password", "authKey", "accessToken"],
+                ["username", "password", "auth_key", "access_token"],
                 "required",
                 'on' => self::SCENARIO_REGISTER
             ],
@@ -40,7 +46,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
                 'on' => self::SCENARIO_LOGIN
             ],
             [
-                ["username", "password", "authKey", "accessToken"],
+                ["username", "password", "auth_key", "access_token"],
                 "string"
             ]
         ];
@@ -57,7 +63,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public static function findIdentityByaccessToken($token, $type = null)
     {
         return static::findOne(['access_token' => $token]);
     }
@@ -92,9 +98,9 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    public function validateAuthKey($auth_key)
     {
-        return $this->auth_key === $authKey;
+        return $this->auth_key === $auth_key;
     }
 
     /**
@@ -105,7 +111,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === password_hash($password, PASSWORD_DEFAULT );
+        return $this->password === password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function beforeSave($insert)
@@ -113,7 +119,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
                 $this->auth_key = \Yii::$app->security->generateRandomString();
-                $this->password = password_hash($this->password, PASSWORD_DEFAULT );
+                $this->password = password_hash($this->password, PASSWORD_DEFAULT);
             }
             return true;
         }
