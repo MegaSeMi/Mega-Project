@@ -5,9 +5,8 @@ namespace app\controllers;
 
 
 use app\models\Book;
-use yii\rest\ActiveController;
 
-class BookController extends ActiveController
+class BookController extends BaseController
 {
     public $modelClass = Book::class;
 }

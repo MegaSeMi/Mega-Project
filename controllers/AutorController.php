@@ -5,9 +5,8 @@ namespace app\controllers;
 
 
 use app\models\Autor;
-use yii\rest\ActiveController;
 
-class AutorController extends ActiveController
+class AutorController extends BaseController
 {
     public $modelClass = Autor::class;
 }
