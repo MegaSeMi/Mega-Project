@@ -1,4 +1,4 @@
-GET http://biblionare/autors
+GET http://biblionare/books?XDEBUG_SESSION_START=QWERTY&year=1990&country=test&language=test&genre=test
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json

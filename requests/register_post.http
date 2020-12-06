@@ -1,10 +1,14 @@
-GET http://biblionare/autors
+POST http://biblionare/register
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 Connection: keep-alive
 Accept-Encoding: gzip, deflate, br
-Authorization: Bearer Qeofd1EN785nAy524mYJ77ArP3mi7n7h
+
+{
+  "username" : "Vania",
+  "password" : "1234"
+}
 
 ###
 

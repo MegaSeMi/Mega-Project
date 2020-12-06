@@ -56,6 +56,9 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'autor'],
                 'POST /register' => '/index/register',
+                'POST /login' => '/index/login',
+                'GET /logout' => '/index/logout',
+                'GET /test' => '/test/test',
             ],
         ],
 

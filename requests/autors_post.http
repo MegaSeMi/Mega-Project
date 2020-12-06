@@ -4,6 +4,7 @@ Cache-Control: no-cache
 Content-Type: application/json
 Connection: keep-alive
 Accept-Encoding: gzip, deflate, br
+Authorization: Bearer Qeofd1EN785nAy524mYJ77ArP3mi7n7h
 
 {   "fio": "test",   "year_of_birth": 1945,   "year_of_death": 2016,   "country_autor": "usa"    }
 

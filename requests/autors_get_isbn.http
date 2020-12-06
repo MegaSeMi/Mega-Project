@@ -1,4 +1,4 @@
-GET http://biblionare/autors
+GET http://biblionare/autors?isbn=1
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
